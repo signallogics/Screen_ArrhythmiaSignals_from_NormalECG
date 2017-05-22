@@ -1,0 +1,14 @@
+clc;
+close all;
+clear all;
+
+fs = 250;
+
+pwd_path = pwd;
+data_path = [pwd_path,'/../data/train/'];
+load([data_path,'/normal_ecg.mat']);
+sig = normal_ecg(1,1:fs);
+subplot(121);pwelch(sig);title('PSD of Normal ECG signal');
+load([data_path,'/abnormal_ecg.mat']);
+sig = abnormal_ecg(1,1:fs);
+subplot(122);pwelch(sig);title('PSD of Arrhythmia ECG signal');
